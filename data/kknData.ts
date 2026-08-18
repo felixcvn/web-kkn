@@ -221,7 +221,7 @@ export const PROGRAMS_DATA: Program[] = [
     fullContent: "Program ini bertujuan meningkatkan transparansi dan kemudahan akses informasi publik Desa Bangsalsari. Kami membangun website resmi desa yang memuat peta interaktif potensi lokal, direktori usaha warga, serta sistem pengajuan surat menyurat sederhana.",
     impact: "Tercapainya Pendataan kemiskinan dan Sasaran Bantuan Yang Tepat Sasaran ",
     targetAudience: "Masyarakat dan Warga Yang Kurang Mampu",
-    image: "/images/programs/p1.jpg",
+    image: "/images/programs/verval.jpg",
     order: 1,
   },
   {
@@ -233,7 +233,7 @@ export const PROGRAMS_DATA: Program[] = [
     fullContent: "Banyak produk olahan pangan Bangsalsari yang lezat namun kemasannya masih tradisional. Tim KKN mengadakan workshop branding, merancang desain kemasan berdiri (standing pouch) modern, dan mendaftarkan lokasi toko ke Google Maps.",
     impact: "Penjualan UMKM Mitra meningkat hingga 40% dan jangkauan pesanan meluas ke kota sekitar.",
     targetAudience: "Pelaku UMKM Olahan Pangan Desa",
-    image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=800&q=80",
+    image: "images/programs/viola.jpg",
     order: 2,
   },
   {
@@ -245,7 +245,7 @@ export const PROGRAMS_DATA: Program[] = [
     fullContent: "Menciptakan ruang belajar afektif dan menyenangkan bagi anak-anak tingkat SD dan SMP. Kami mengumpulkan ratusan buku donasi dan menata ruangan menjadi pustaka mini yang nyaman.",
     impact: "Lebih dari 80 anak desa rutin belajar dan membaca setiap sore di posko KKN.",
     targetAudience: "Anak-anak SD & SMP Bangsalsari",
-    image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+    image: "images/programs/les.jpg",
     order: 3,
   },
   {
@@ -257,7 +257,7 @@ export const PROGRAMS_DATA: Program[] = [
     fullContent: "Bekerja sama dengan Bidan Desa dan Kader Posyandu untuk mengedukasi ibu hamil dan menyusui mengenai pentingnya protein hewani lokal seperti telur dan ikan lele untuk mencegah stunting.",
     impact: "120 Balita terpantau grafik tumbuh kembangnya dan meningkatnya kesadaran gizi keluarga.",
     targetAudience: "Ibu Hamil, Menyusui, dan Kader Posyandu",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+    image: "images/programs/sosialisasi.jpg",
     order: 4,
   },
   {
@@ -269,45 +269,9 @@ export const PROGRAMS_DATA: Program[] = [
     fullContent: "Menjawab masalah tumpukan sampah dapur dengan metode komposting sederhana memanfaatkan ember bekas dan bioaktivator. Hasil pupuk dibagikan gratis kepada warga pemilik pekarangan.",
     impact: "Mengurangi 30% volume sampah dapur harian di wilayah RT pilot project.",
     targetAudience: "Kelompok Tani & Ibu Rumah Tangga",
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80",
+    image: "images/programs/tpa.jpg",
     order: 5,
   },
-  {
-    id: "p6",
-    title: "Pelatihan E-Commerce & Pemasaran Digital",
-    category: "Pengembangan UMKM",
-    badgeColor: "peach",
-    description: "Pendampingan langsung buka toko di Shopee & Tokopedia serta trik mengambil foto produk ciamik dengan HP.",
-    fullContent: "Warga diajarkan teknik pencahayaan sederhana memakai lampu penerang jalan dan kertas karton putih untuk foto produk professional, dilanjutkan dengan mendaftar toko online.",
-    impact: "5 Usaha lokal siap bertransaksi online secara mandiri.",
-    targetAudience: "Pemuda Desa & Pengusaha Muda",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-    order: 6,
-  },
-  {
-    id: "p7",
-    title: "Sosialisasi Kesadaran Hukum & Anti Bullying",
-    category: "Sosialisasi & Pelatihan",
-    badgeColor: "pink",
-    description: "Penyuluhan bahaya perundungan (bullying) dan bijak bermedia sosial di Sekolah Menengah Pertama.",
-    fullContent: "Program pencegahan kekerasan di lingkungan sekolah dengan metode role-playing interaktif dan diskusi kelompok terarah mengenai etika berinternet.",
-    impact: "Terbentuknya deklarasi Sekolah Ramah Anak di SMP Negeri Bangsalsari.",
-    targetAudience: "Siswa-siswi SMP & Guru",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
-    order: 7,
-  },
-  {
-    id: "p8",
-    title: "Festival Budaya & Pentas Seni Perpisahan",
-    category: "Sosialisasi & Pelatihan",
-    badgeColor: "lavender",
-    description: "Pentas seni anak desa, bazar UMKM Bangsalsari, dan malam ramah tamah penghujung KKN.",
-    fullContent: "Malam puncak pengabdian sebagai apresiasi atas kehangatan sambutan warga Bangsalsari. Menampilkan tari tradisional anak-anak, penampilan musik tim KKN, dan pemutaran film dokumenter perjalanan.",
-    impact: "Mempererat tali silaturahmi dan meninggalkan kesan mendalam yang tak terlupakan.",
-    targetAudience: "Segenap Warga Desa Bangsalsari",
-    image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80",
-    order: 8,
-  }
 ];
 
 export const ACTIVITIES_DATA: Activity[] = [
