@@ -104,7 +104,7 @@ export const MEMBERS_DATA: Member[] = [
     name: "Ega Felix Cavan",
     role: "Koordinator Desa (Kordes)",
     faculty: "Fakultas Ilmu Komputer",
-    photo: "/images/members/felix.jpg",
+    photo: "/images/members/felix.png",
     bio: "Memimpin pergerakan tim dengan komitmen tinggi dan senyuman hangat. Percaya bahwa kepemimpinan adalah tentang melayani.",
     responsibility: "Manajerial Tim & Hubungan Tokoh Masyarakat",
     instagram: "@feliiixxc",
