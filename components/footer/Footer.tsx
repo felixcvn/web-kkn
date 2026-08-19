@@ -95,7 +95,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm font-sans">
+          <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-6 text-sm font-sans">
             <div>
               <h4 className="font-serif font-bold text-softblack text-base mb-3">Navigasi</h4>
               <ul className="space-y-2 text-softblack/75">

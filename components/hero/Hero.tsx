@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { KKN_INFO } from "@/data/kknData";
@@ -9,23 +9,34 @@ import TypewriterHeadline from "./TypewriterHeadline";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
 
-  // 3D Perspective Scroll Unfold Transform Values
-  const rotateX = useTransform(scrollYProgress, [0, 0.35], [16, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.35], [0.92, 1]);
-  const translateY = useTransform(scrollYProgress, [0, 0.35], [-25, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.15], [0.9, 1]);
+  // 3D Perspective Scroll Unfold Transform Values (Desktop Only)
+  const rotateXTransform = useTransform(scrollYProgress, [0, 0.35], [16, 0]);
+  const scaleTransform = useTransform(scrollYProgress, [0, 0.35], [0.92, 1]);
+  const translateYTransform = useTransform(scrollYProgress, [0, 0.35], [-25, 0]);
+  const opacityTransform = useTransform(scrollYProgress, [0, 0.15], [0.9, 1]);
 
   return (
     <section
       ref={containerRef}
       id="hero"
       className="relative min-h-screen pt-28 pb-10 flex flex-col justify-between bg-cream overflow-hidden"
-      style={{ perspective: "1200px" }}
+      style={{ perspective: isMobile ? "none" : "1200px" }}
     >
       {/* Watermark Background */}
       <div
@@ -36,14 +47,14 @@ export default function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-cream/80 via-transparent to-cream -z-10 pointer-events-none" />
 
-      {/* 3D Scroll Unfold Stage */}
+      {/* 3D Scroll Unfold Stage (Active on Desktop, Flat on Mobile) */}
       <motion.div
         style={{
-          rotateX,
-          scale,
-          translateY,
-          opacity,
-          transformStyle: "preserve-3d",
+          rotateX: isMobile ? 0 : rotateXTransform,
+          scale: isMobile ? 1 : scaleTransform,
+          translateY: isMobile ? 0 : translateYTransform,
+          opacity: opacityTransform,
+          transformStyle: isMobile ? "flat" : "preserve-3d",
         }}
         className="w-full flex flex-col justify-between flex-1 transition-transform duration-75"
       >

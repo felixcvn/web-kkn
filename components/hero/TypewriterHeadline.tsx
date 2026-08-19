@@ -50,10 +50,10 @@ export default function TypewriterHeadline() {
 
   return (
     <div className="max-w-7xl mx-auto mb-5 text-center px-2">
-      <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[82px] font-normal text-softblack tracking-tight leading-[1.12]">
-        {/* Line 1: Kept strictly on 1 single line */}
-        <span className="block whitespace-nowrap overflow-hidden">
-          <span className="inline-flex justify-center gap-x-[0.25em]">
+      <h1 className="font-serif text-[26px] sm:text-4xl md:text-6xl lg:text-7xl xl:text-[82px] font-normal text-softblack tracking-tight leading-[1.15]">
+        {/* Line 1 */}
+        <span className="block sm:whitespace-nowrap overflow-hidden">
+          <span className="inline-flex flex-wrap justify-center gap-x-[0.25em]">
             {wordsLine1.map((word, i) => (
               <motion.span
                 key={i}
@@ -72,14 +72,14 @@ export default function TypewriterHeadline() {
           </span>
         </span>
 
-        {/* Line 2: Kept strictly on line 2 with Dark Teal theme */}
+        {/* Line 2 */}
         <motion.span
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="italic font-light text-darkteal block whitespace-nowrap overflow-hidden mt-1"
+          className="italic font-light text-darkteal block sm:whitespace-nowrap overflow-hidden mt-1"
         >
-          <span className="inline-flex items-center justify-center">
+          <span className="inline-flex items-center justify-center flex-wrap">
             <span>Bersama,&nbsp;</span>
             <span className="relative inline-block text-darkteal font-light">
               {currentText}
@@ -87,7 +87,7 @@ export default function TypewriterHeadline() {
               <motion.span
                 animate={{ opacity: [1, 0, 1] }}
                 transition={{ repeat: Infinity, duration: 0.8 }}
-                className="inline-block w-[4px] h-[0.75em] bg-darkteal ml-1 align-baseline rounded-full"
+                className="inline-block w-[3px] sm:w-[4px] h-[0.75em] bg-darkteal ml-1 align-baseline rounded-full"
               />
             </span>
           </span>

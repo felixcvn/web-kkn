@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 interface TiltCardProps {
@@ -19,6 +19,17 @@ export default function TiltCard({
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      if (window.innerWidth < 768 || ("ontouchstart" in window && navigator.maxTouchPoints > 0)) {
+        setIsMobile(true);
+      }
+    };
+    checkMobile();
+  }, []);
+
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
 
@@ -27,7 +38,7 @@ export default function TiltCard({
   const rotateY = useSpring(useTransform(mouseX, [0, 1], [-maxTilt, maxTilt]), springConfig);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
+    if (isMobile || !ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width;
     const y = (e.clientY - rect.top) / rect.height;
@@ -37,7 +48,7 @@ export default function TiltCard({
   };
 
   const handleMouseEnter = () => {
-    setIsHovered(true);
+    if (!isMobile) setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
@@ -54,9 +65,9 @@ export default function TiltCard({
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
       style={{
-        rotateX: isHovered ? rotateX : 0,
-        rotateY: isHovered ? rotateY : 0,
-        transformStyle: "preserve-3d",
+        rotateX: !isMobile && isHovered ? rotateX : 0,
+        rotateY: !isMobile && isHovered ? rotateY : 0,
+        transformStyle: isMobile ? "flat" : "preserve-3d",
       }}
       className={`relative transition-shadow duration-300 ${className}`}
     >

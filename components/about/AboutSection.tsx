@@ -90,13 +90,13 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-6 relative"
+            className="lg:col-span-6 relative pb-10 sm:pb-0"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-card border-2 border-darkteal/15">
               <img
                 src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80"
                 alt="KKN Bangsalsari Team & Warga"
-                className="w-full h-[440px] sm:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
+                className="w-full h-[360px] sm:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-softblack/60 via-transparent to-transparent" />
 
