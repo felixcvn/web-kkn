@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
-import confetti from "canvas-confetti";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { KKN_INFO } from "@/data/kknData";
 
 export default function Navbar() {
@@ -22,15 +21,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const triggerNavbarConfetti = () => {
-    confetti({
-      particleCount: 50,
-      spread: 60,
-      origin: { y: 0.1, x: 0.85 },
-      colors: ["#FFF6B8", "#9EE2DB", "#58B5AA", "#288584"],
-    });
-  };
-
   const navLinks = [
     { name: "Beranda", href: "#hero" },
     { name: "Tentang", href: "#about" },
@@ -44,12 +34,12 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-cream/95 backdrop-blur-md shadow-soft py-3 border-b border-darkteal/10"
+          ? "bg-cream/95 backdrop-blur-md shadow-sm py-3.5 border-b border-darkteal/15"
           : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between relative">
           {/* Logo / Group Name */}
           <a
             href="#hero"
@@ -59,34 +49,33 @@ export default function Navbar() {
               <img
                 src={KKN_INFO.logoUrl}
                 alt="Logo KKN Bangsalsari"
-                className="w-10 h-10 object-contain rounded-full border border-darkteal/15 bg-cream-light p-0.5 shadow-sm transition-transform duration-300 group-hover:scale-110"
+                className="w-9 h-9 object-contain rounded-full border border-darkteal/20 bg-cream-light p-0.5 shadow-sm transition-transform duration-300 group-hover:scale-105"
                 onError={(e) => {
-                  // Fallback to text icon if image not found yet
                   e.currentTarget.style.display = 'none';
                   e.currentTarget.nextElementSibling?.classList.remove('hidden');
                 }}
               />
             ) : null}
-            <div className={`w-10 h-10 rounded-full bg-darkteal flex items-center justify-center text-cream font-serif text-lg font-bold shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 ${KKN_INFO.logoUrl ? 'hidden' : ''}`}>
+            <div className={`w-9 h-9 rounded-full bg-darkteal flex items-center justify-center text-cream font-serif text-base font-bold shadow-sm transition-transform duration-300 group-hover:scale-105 ${KKN_INFO.logoUrl ? 'hidden' : ''}`}>
               K
             </div>
             <div className="flex flex-col">
-              <span className="font-serif font-bold text-lg text-softblack tracking-tight leading-tight">
+              <span className="font-serif font-bold text-base text-softblack tracking-tight leading-tight">
                 KKN Kolaboratif
               </span>
-              <span className="text-[11px] font-semibold text-darkteal tracking-wider uppercase">
+              <span className="text-[10px] font-bold text-darkteal tracking-widest uppercase">
                 Desa Bangsalsari
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 bg-cream-light/80 backdrop-blur-sm px-4 py-1.5 rounded-full border border-darkteal/15 shadow-sm">
+          <nav className="hidden md:flex items-center justify-center gap-1 bg-cream-light/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-darkteal/20 shadow-sm md:absolute md:left-1/2 md:-translate-x-1/2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3.5 py-1.5 text-sm font-medium text-softblack hover:text-darkteal hover:bg-mint-light/60 rounded-full transition-all duration-200"
+                className="px-3.5 py-1.5 text-xs font-semibold text-softblack/80 hover:text-darkteal hover:bg-mint-light/50 rounded-full transition-all duration-200"
               >
                 {link.name}
               </a>
@@ -97,11 +86,10 @@ export default function Navbar() {
           <div className="hidden md:flex items-center">
             <a
               href="#closing"
-              onClick={triggerNavbarConfetti}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-darkteal hover:bg-teal text-cream-light text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-hover hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-darkteal hover:bg-teal text-cream text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-sm hover:-translate-y-0.5"
             >
-              <span>Ikuti Perjalanan Kami</span>
-              <ArrowUpRight className="w-4 h-4 text-cream" />
+              <span>Ikuti Perjalanan</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-cream" />
             </a>
           </div>
 
@@ -109,13 +97,13 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-full bg-cream-light border border-darkteal/20 text-softblack focus:outline-none shadow-sm"
+              className="p-2 rounded-lg bg-cream-light border border-darkteal/20 text-softblack focus:outline-none shadow-sm"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
-                <X className="w-6 h-6 text-darkteal" />
+                <X className="w-5 h-5 text-darkteal" />
               ) : (
-                <Menu className="w-6 h-6 text-darkteal" />
+                <Menu className="w-5 h-5 text-darkteal" />
               )}
             </button>
           </div>
@@ -142,11 +130,8 @@ export default function Navbar() {
           <div className="pt-6 border-t border-darkteal/10">
             <a
               href="#closing"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                triggerNavbarConfetti();
-              }}
-              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-darkteal text-cream text-sm font-semibold tracking-wide shadow-md"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-darkteal text-cream text-xs font-bold uppercase tracking-wider shadow-md"
             >
               <span>Ikuti Perjalanan Kami</span>
               <ArrowUpRight className="w-4 h-4" />

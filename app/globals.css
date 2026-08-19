@@ -68,15 +68,37 @@ h1, h2, h3, .font-serif {
 /* Editorial interactive card class */
 .editorial-card {
   background-color: #FCFAF2;
-  border: 1px solid rgba(40, 133, 132, 0.15);
-  box-shadow: 0 10px 30px -10px rgba(40, 133, 132, 0.1);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(40, 133, 132, 0.16);
+  border-radius: 1rem; /* 16px architectural radius */
+  box-shadow: 0 4px 20px -4px rgba(22, 58, 57, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .editorial-card:hover {
-  box-shadow: 0 22px 50px -12px rgba(40, 133, 132, 0.25);
-  transform: translateY(-4px) scale(1.01);
-  border-color: rgba(40, 133, 132, 0.4);
+  box-shadow: 0 16px 36px -8px rgba(22, 58, 57, 0.12);
+  transform: translateY(-3px);
+  border-color: rgba(40, 133, 132, 0.35);
+}
+
+/* Editorial Badge */
+.editorial-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 0.375rem; /* 6px crisp badge radius */
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background-color: rgba(158, 226, 219, 0.35);
+  color: #163A39;
+  border: 1px solid rgba(40, 133, 132, 0.2);
+}
+
+/* Section keyline divider */
+.editorial-keyline {
+  border-top: 1px solid rgba(40, 133, 132, 0.15);
 }
 
 /* Hide scrollbar for clean carousels */

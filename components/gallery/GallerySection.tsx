@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Maximize2, X } from "lucide-react";
-import confetti from "canvas-confetti";
 import { GALLERY_DATA, GalleryItem } from "@/data/kknData";
 
 export default function GallerySection() {
@@ -26,12 +25,6 @@ export default function GallerySection() {
 
   const handleOpenLightbox = (item: GalleryItem) => {
     setLightboxItem(item);
-    confetti({
-      particleCount: 30,
-      spread: 50,
-      origin: { y: 0.5 },
-      colors: ["#FFF6B8", "#9EE2DB", "#288584"],
-    });
   };
 
   return (
@@ -40,8 +33,8 @@ export default function GallerySection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-mint text-softblack text-xs font-bold uppercase tracking-wider mb-4 border border-darkteal/15">
-              <span>Section 05</span>
+            <div className="editorial-badge mb-4">
+              <span>05</span>
               <span>•</span>
               <span>Arsip Foto Dokumen</span>
             </div>
@@ -51,16 +44,16 @@ export default function GallerySection() {
             </h2>
           </div>
 
-          {/* Category Filter Pills */}
+          {/* Category Filter Buttons */}
           <div className="flex flex-wrap gap-2">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
                   activeCategory === cat
                     ? "bg-darkteal text-cream shadow-sm"
-                    : "bg-cream-light text-softblack/80 hover:bg-mint-light border border-darkteal/15"
+                    : "bg-cream-light text-softblack/80 hover:bg-mint-light border border-darkteal/20"
                 }`}
               >
                 {cat}
@@ -79,25 +72,25 @@ export default function GallerySection() {
               <motion.div
                 layout
                 key={item.id}
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
+                exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
                 onClick={() => handleOpenLightbox(item)}
-                className="editorial-card break-inside-avoid rounded-[28px] overflow-hidden bg-cream-light cursor-pointer group relative shadow-soft hover:shadow-hover border-2 border-darkteal/15 hover:border-darkteal"
+                className="editorial-card break-inside-avoid rounded-2xl overflow-hidden bg-cream-light cursor-pointer group relative border border-darkteal/20 hover:border-darkteal/50"
               >
                 {/* Photo */}
                 <div className="relative w-full overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-auto object-cover group-hover:scale-108 transition-transform duration-500"
+                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-darkteal-dark/90 via-darkteal-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6 text-cream" />
 
                   {/* Hover Overlay Details */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-cream opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-mint text-softblack mb-2 shadow-md">
+                    <span className="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-mint text-softblack mb-2 shadow-md">
                       {item.category}
                     </span>
                     <h3 className="font-serif font-bold text-lg text-cream leading-snug">
@@ -128,17 +121,16 @@ export default function GallerySection() {
               exit={{ opacity: 0, scale: 0.95 }}
               className="relative max-w-4xl w-full flex flex-col items-center"
             >
-              {/* Close button */}
-              <button
-                onClick={() => setLightboxItem(null)}
-                className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-mint text-darkteal hover:bg-mint-dark flex items-center justify-center font-bold"
-                aria-label="Close Lightbox"
-              >
-                <X className="w-6 h-6" />
-              </button>
-
               {/* Lightbox Image */}
-              <div className="rounded-[32px] overflow-hidden border-2 border-mint/30 max-h-[75vh] w-full flex justify-center bg-black shadow-floating">
+              <div className="relative rounded-2xl overflow-hidden border border-mint/30 max-h-[75vh] w-full flex justify-center bg-black shadow-floating">
+                {/* Close button */}
+                <button
+                  onClick={() => setLightboxItem(null)}
+                  className="absolute top-4 right-4 z-20 w-9 h-9 rounded-md bg-cream-light/90 hover:bg-mint text-darkteal border border-darkteal/20 flex items-center justify-center font-bold shadow-md transition-transform hover:scale-105"
+                  aria-label="Close Lightbox"
+                >
+                  <X className="w-5 h-5" />
+                </button>
                 <img
                   src={lightboxItem.image}
                   alt={lightboxItem.title}
@@ -147,8 +139,8 @@ export default function GallerySection() {
               </div>
 
               {/* Lightbox Caption Box */}
-              <div className="mt-4 bg-cream/95 backdrop-blur-md rounded-[24px] p-5 w-full max-w-2xl text-center border-2 border-darkteal/20 shadow-floating">
-                <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-mint text-softblack mb-2 shadow-sm">
+              <div className="mt-4 bg-cream rounded-xl p-5 w-full max-w-2xl text-center border border-darkteal/20 shadow-xl">
+                <span className="inline-block px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-mint text-softblack mb-2 shadow-sm">
                   {lightboxItem.category} • {lightboxItem.date}
                 </span>
                 <h3 className="font-serif font-bold text-xl text-softblack">

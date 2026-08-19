@@ -75,23 +75,23 @@ export default function PortraitCarousel() {
                   transformStyle: "preserve-3d",
                 }}
               >
-                <div className="w-full h-full rounded-[30px] overflow-hidden bg-cream-light border-2 border-darkteal/15 shadow-card group-hover:shadow-hover group-hover:border-darkteal transition-all duration-300 relative">
+                <div className="w-full h-full rounded-2xl overflow-hidden bg-cream-light border border-darkteal/20 shadow-card group-hover:shadow-hover group-hover:border-darkteal/50 transition-all duration-300 relative">
                   <img
                     src={member.photo}
                     alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                    className="w-full h-full object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-darkteal-dark/90 via-darkteal-dark/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-darkteal-dark/95 via-darkteal-dark/30 to-transparent" />
 
                   {/* Card Label Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-cream text-left">
-                    <span className="inline-block px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-mint text-softblack mb-2 shadow-sm">
+                  <div className="absolute bottom-0 left-0 right-0 p-5 text-cream text-left">
+                    <span className="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-mint text-softblack mb-1.5 shadow-sm">
                       {member.role.split(" ")[0]}
                     </span>
-                    <h3 className="font-serif font-bold text-xl text-cream leading-tight">
+                    <h3 className="font-serif font-bold text-lg text-cream leading-tight">
                       {member.name}
                     </h3>
-                    <p className="text-xs sm:text-sm text-mint-light/90 font-sans mt-0.5 truncate">
+                    <p className="text-xs text-mint-light/90 font-sans mt-0.5 truncate">
                       {member.faculty}
                     </p>
                   </div>
@@ -104,8 +104,8 @@ export default function PortraitCarousel() {
 
       {/* Helper Subtext */}
       <div className="flex items-center justify-center gap-2 mt-2 text-xs font-sans text-softblack/60 font-medium relative z-30">
-        <span className="w-2.5 h-2.5 rounded-full bg-darkteal animate-ping" />
-        <span>Auto-sliding • Arahkan kursor untuk menjeda & klik foto untuk profil</span>
+        <span className="w-2 h-2 rounded-full bg-darkteal animate-ping" />
+        <span>Arahkan kursor untuk menjeda • Klik foto untuk profil lengkap</span>
       </div>
 
       {/* Detail Modal */}
@@ -113,23 +113,23 @@ export default function PortraitCarousel() {
         {selectedMember && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-softblack/70 backdrop-blur-md">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="bg-cream p-6 sm:p-8 rounded-[36px] max-w-md w-full border-2 border-darkteal/20 shadow-floating text-center relative"
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              className="bg-cream p-6 sm:p-8 rounded-2xl max-w-md w-full border border-darkteal/20 shadow-floating text-center relative"
             >
               <button
                 onClick={() => setSelectedMember(null)}
-                className="absolute top-4 right-4 text-softblack/60 hover:text-darkteal font-bold text-sm w-8 h-8 rounded-full bg-mint-light flex items-center justify-center"
+                className="absolute top-4 right-4 text-softblack/60 hover:text-darkteal font-bold text-sm w-7 h-7 rounded-md bg-cream-light border border-darkteal/15 flex items-center justify-center"
               >
                 ✕
               </button>
               <img
                 src={selectedMember.photo}
                 alt={selectedMember.name}
-                className="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-darkteal shadow-md"
+                className="w-24 h-24 rounded-xl object-cover object-[center_15%] mx-auto mb-4 border-2 border-darkteal shadow-md"
               />
-              <span className="px-3.5 py-1 rounded-full bg-mint text-softblack text-xs font-semibold uppercase tracking-wider">
+              <span className="px-3 py-1 rounded-md bg-mint text-softblack text-[11px] font-bold uppercase tracking-wider">
                 {selectedMember.role}
               </span>
               <h3 className="font-serif text-2xl font-bold text-softblack mt-3">
@@ -138,7 +138,7 @@ export default function PortraitCarousel() {
               <p className="text-xs text-darkteal font-semibold mt-0.5">
                 {selectedMember.faculty}
               </p>
-              <p className="text-sm text-softblack/80 font-sans mt-4 italic bg-cream-light p-4 rounded-2xl border border-darkteal/10">
+              <p className="text-sm text-softblack/80 font-sans mt-4 italic bg-cream-light p-4 rounded-xl border border-darkteal/15">
                 "{selectedMember.bio}"
               </p>
               <div className="mt-6 pt-4 border-t border-darkteal/15 text-xs font-sans text-softblack/70">

@@ -72,7 +72,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-darkteal/15">
           <div className="md:col-span-5 space-y-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-darkteal flex items-center justify-center text-cream font-serif font-bold text-sm">
+              {KKN_INFO.logoUrl ? (
+                <img
+                  src={KKN_INFO.logoUrl}
+                  alt="Logo KKN Bangsalsari"
+                  className="w-9 h-9 object-contain rounded-full border border-darkteal/20 bg-cream-light p-0.5 shadow-sm"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                  }}
+                />
+              ) : null}
+              <div className={`w-9 h-9 rounded-full bg-darkteal flex items-center justify-center text-cream font-serif text-sm font-bold shadow-sm ${KKN_INFO.logoUrl ? 'hidden' : ''}`}>
                 K
               </div>
               <span className="font-serif font-bold text-xl text-softblack">
